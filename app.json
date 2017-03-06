@@ -1,0 +1,5 @@
+{
+	"name": "MEAN Retail",
+	"description": "A application for an online retail store (Mini Amazon)",
+	"keywords": ["Mongo", "Express", "Angular", "Node"]
+}
