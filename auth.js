@@ -65,7 +65,7 @@ function setupAuth(User, Config, app) {
         
       passport.authenticate('facebook', {  
         callbackURL: url,
-        successRedirect: ''
+        successRedirect: '/'
       })(req, res, next);
     },
     function(req, res) {
