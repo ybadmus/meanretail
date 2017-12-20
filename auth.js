@@ -39,13 +39,12 @@ function setupAuth(User, Config, app) {
         { 'new': true, upsert: true, runValidators: true },
         function(error, user) {
           done(error, user);
-        });
+        }
+      );
     }));
 
   // Express middlewares
-  app.use(require('express-session')({
-    secret: 'this is a secret'
-  }));
+  app.use(require('express-session')({ secret: 'this is a secret' }));
   app.use(passport.initialize());
   app.use(passport.session());
 
@@ -60,9 +59,10 @@ function setupAuth(User, Config, app) {
   });
 
   app.get('/auth/facebook/callback', function(req, res, next) {
-      var url = 'https://meanstackretail.herokuapp.com/auth/facebook/callback?redirect=' +
+    var url = 'https://meanstackretail.herokuapp.com/auth/facebook/callback?redirect=' +
         encodeURIComponent(req.query.redirect);
-      passport.authenticate('facebook', { 
+        
+      passport.authenticate('facebook', {  
         callbackURL: url,
         successRedirect: ''
       })(req, res, next);

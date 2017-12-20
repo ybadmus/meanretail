@@ -14,6 +14,20 @@ body {
   padding: 10px;
 }
 
+.row-footer {
+  margin: 0px auto;
+  padding: 10px;
+  background-color: #eeeeee;
+  color: black;
+  font-size: 15px;
+  /*font-style: italic;*/
+}
+
+.footer {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
 a {
   color: #CC4A14;
   text-decoration: none;
@@ -335,12 +349,13 @@ a {
 }
 
 .search-bar-wrapper .search-bar-input {
-  display: inline-block;
+  display: block;
   font-size: 24px;
   border-radius: 3px;
+  text-align: center;
   padding: 5px;
   border: 1px solid #666666;
-  width: 600px;
+  width: 90%;
   margin: 50px;
 }
 

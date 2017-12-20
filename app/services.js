@@ -17,7 +17,7 @@ exports.$user = function($http) {
   };
 
   s.loadUser();
-
+  //every hour ...
   setInterval(s.loadUser, 60 * 60 * 1000);
 
   return s;

@@ -105,8 +105,12 @@ exports.CheckoutController = function($scope, $user, $http) {
   }
 };
 
-exports.NavBarController = function($scope, $user) {
+exports.NavBarController = function($scope, $user, $http) {
   $scope.user = $user;
+  $scope.loginBtn = function() {
+        console.log("login")
+        $http.get('https://meanstackretail.herokuapp.com/auth/facebook?redirect=%2Fassessment%2F%23%2F')
+    }
 
   setTimeout(function() {
     $scope.$emit('NavBarController');

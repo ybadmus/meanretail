@@ -1,5 +1,6 @@
 var express = require('express');
 var wagner = require('wagner-core');
+var cors = require('cors');
 
 require('./models')(wagner);
 require('./dependencies')(wagner);
@@ -7,6 +8,8 @@ require('./dependencies')(wagner);
 var app = express();
 
 app.set('port', (process.env.PORT || 3000));
+
+app.use(cors());
 
 app.use(require('morgan')());
 

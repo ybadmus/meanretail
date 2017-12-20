@@ -1,7 +1,9 @@
 var mongoose = require('mongoose');
 
 var categorySchema = {
-  _id: { type: String },
+  _id: { 
+  	type: String 
+  },
   parent: {
     type: String,
     ref: 'Category'

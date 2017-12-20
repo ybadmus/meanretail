@@ -2,8 +2,7 @@ var superagent = require('superagent');
 var _ = require('underscore');
 
 module.exports = function(Config) {
-  var url = 'http://openexchangerates.org/api/latest.json?app_id=' +
-    Config.openExchangeRatesKey;
+  var url = 'http://openexchangerates.org/api/latest.json?app_id=' + Config.openExchangeRatesKey;
     
   var rates = {
     USD: 1,
@@ -41,9 +40,7 @@ module.exports = function(Config) {
   setInterval(ping, 60 * 60 * 1000); // Repeat every hour
 
   // Return the current state of the exchange rates
-  var ret = function() {
-    return rates;
-  };
+  var ret = function() { return rates; };
 
   ret.ping = ping;
 

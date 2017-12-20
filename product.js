@@ -48,6 +48,7 @@ module.exports = function(db, fx) {
    * Human-readable string form of price - "$25" rather
    * than "25 USD"
    */
+   
   schema.virtual('displayPrice').get(function() {
     return currencySymbols[this.price.currency] +
       '' + this.price.amount;

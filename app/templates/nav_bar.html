@@ -8,20 +8,17 @@
                         <span class="icon-bar"></span>
                     </button>
                    <!-- <a class="navbar-brand" href="/assessment"><img src="/mean-retail-logo.png" height=30 width=41></a> -->
-                   <a class="navbar-brand" href="#/" style="margin-top: 7px">MEAN Retail</a>
+                   <a class="navbar-brand" href="#/" style="margin-top: 7px; font-family: Maven Pro;">MEAN Retail</a>
             </div>
 
             <div id="navbar" class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li class="dropdown">
-                        <a href="" style="font-size: 15px" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">&nbsp;&nbsp;<span class="glyphicon glyphicon-list-alt" aria-hidden="true" style="margin-top: 7px"></span> PRODUCTS &nbsp;<span class="caret"></span></a>
+                        <a href="" style="font-size: 16px; font-family: Maven Pro;" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">&nbsp;&nbsp;<span class="glyphicon glyphicon-list-alt" aria-hidden="true" style="margin-top: 7px"></span> PRODUCTS &nbsp;<span class="caret"></span></a>
                         <ul class="dropdown-menu">
                             <li><a href="#/category/Phones">Phones</a></li>
-                            <li><a href="#/category/Laptops">Laptops</a></li>
                             <li><a href="#/category/Books">Books</a></li>
                             <li><a href="#/category/Classics">Classics</a></li>
-                            <li><a href="#/category/Tablets">Tablets</a></li>
-                            <li><a href="#/category/Electronics">Electronics</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -31,16 +28,15 @@
                         <i style="color:white; margin-left: 10px; margin-right: 10px" class="fa fa-shopping-cart"></i></a>
                     </li>
                     <li ng-show="user.user">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img ng-src="{{user.user.profile.picture}}" height="32" width="32" style="margin-top: 12px; margin-left: 0px"></li>
-                    <!--  <li ng-show="!user.user" style="margin-top: 0px">
-                        <button type="button" class="btn btn-primary ">&nbsp;<i class="fa fa-facebook-official" aria-hidden="true"></i>&nbsp;&nbsp;Log In&nbsp;&nbsp;</button> 
-                    </li> -->
-                    <li ng-show="!user.user"><a href="/auth/facebook?redirect=%2F%23%2F"><img src="//i.stack.imgur.com/LKMP7.png" height="35" width="70"></a></li>
-                </ul>
+                    <li ng-show="!user.user" style="margin-top: 12px; margin-left: 5px">
+                        <button type="button" ng-click="loginBtn()" class="btn btn-success">&nbsp;<i class="fa fa-facebook-official" aria-hidden="true"></i>&nbsp;&nbsp;Log In&nbsp;&nbsp;</button> 
+                    </li> 
+                </ul>  
             </div>
     </div>
-</nav>                 <!-- /assessment/#/ -->
-
-                        <!-- <li>
-                        <div class="image2" ng-show="!user.user">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <a href="/auth/facebook?redirect=%2Fassessment%2F%23%2F">
-                        <img src="//i.stack.imgur.com/LKMP7.png"></a> </div> </li> -->
+</nav>                 
+                <!-- /assessment/#/ link href='https://fonts.googleapis.com/css?family=Maven+Pro' rel='stylesheet' type='text/css'>-->                       
+                <!-- <li>
+                <div class="image2" ng-show="!user.user">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <a href="/auth/facebook?redirect=%2Fassessment%2F%23%2F">
+                <img src="//i.stack.imgur.com/LKMP7.png"></a> </div> </li> -->
