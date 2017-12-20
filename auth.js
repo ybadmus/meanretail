@@ -1,6 +1,7 @@
 function setupAuth(User, Config, app) {
   var passport = require('passport');
   var FacebookStrategy = require('passport-facebook').Strategy;
+  var cors = require('cors');
 
   // High level serialize/de-serialize configuration for passport
   passport.serializeUser(function(user, done) {
