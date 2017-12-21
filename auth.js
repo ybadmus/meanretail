@@ -50,32 +50,27 @@ function setupAuth(User, Config, app) {
   app.use(passport.session());
 
   // Express routes for auth
-  app.get('/auth/facebook',  passport.authenticate('facebook'),
-      function(req, res){
+  app.get('/auth/facebook', function(req, res, next) {
+      var redirect = encodeURIComponent(req.query.redirect || '/');
 
+      passport.authenticate('facebook', {
+          scope: ['email'],
+          callbackURL: 'https://meanstackretail.herokuapp.com/auth/facebook/callback?redirect=' + redirect
+      })(req, res, next);
   });
 
   app.get('/auth/facebook/callback', function(req, res, next) {
+    var url = 'https://meanstackretail.herokuapp.com/auth/facebook/callback?redirect=' +
+        encodeURIComponent(req.query.redirect);
         
-    passport.authenticate('facebook', function(err, user, info) {
-    if (err) {
-      return next(err);
-    }
-    if (!user) {
-      return res.status(401).json({
-        err: info
-      });
-    }
-    req.logIn(user, function(err) {
-      if (err) {
-        return res.status(500).json({
-          err: 'Could not log in user'
-        });
-      }
+      passport.authenticate('facebook', {  
+        callbackURL: url,
+        successRedirect: ''
+      })(req, res, next);
+    },
+    function(req, res) {
+      res.redirect(req.query.redirect);
     });
-
-    })(req,res,next);
-  });
 }
 
 module.exports = setupAuth;
