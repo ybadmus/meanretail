@@ -50,19 +50,31 @@ function setupAuth(User, Config, app) {
   app.use(passport.session());
 
   // Express routes for auth
-  app.get('/auth/facebook', function(req, res, next) {
+  app.get('/auth/facebook',  passport.authenticate('facebook'),
+      function(req, res){
 
-      passport.authenticate('facebook', {
-          scope: ['email'],
-          callbackURL: 'https://meanstackretail.herokuapp.com/auth/facebook/callback'
-      })(req, res, next);
   });
 
   app.get('/auth/facebook/callback', function(req, res, next) {
         
-      passport.authenticate('facebook', {  
-       
-      })(req, res, next);
+    passport.authenticate('facebook', function(err, user, info) {
+    if (err) {
+      return next(err);
+    }
+    if (!user) {
+      return res.status(401).json({
+        err: info
+      });
+    }
+    req.logIn(user, function(err) {
+      if (err) {
+        return res.status(500).json({
+          err: 'Could not log in user'
+        });
+      }
+    });
+
+    })(req,res,next);
   });
 }
 
