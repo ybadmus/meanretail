@@ -51,26 +51,19 @@ function setupAuth(User, Config, app) {
 
   // Express routes for auth
   app.get('/auth/facebook', function(req, res, next) {
-      var redirect = encodeURIComponent(req.query.redirect || '/');
 
       passport.authenticate('facebook', {
           scope: ['email'],
-          callbackURL: 'https://meanstackretail.herokuapp.com/auth/facebook/callback?redirect=' + redirect
+          callbackURL: 'https://meanstackretail.herokuapp.com/auth/facebook/callback'
       })(req, res, next);
   });
 
   app.get('/auth/facebook/callback', function(req, res, next) {
-    var url = 'https://meanstackretail.herokuapp.com/auth/facebook/callback?redirect=' +
-        encodeURIComponent(req.query.redirect);
         
       passport.authenticate('facebook', {  
-        callbackURL: url,
-        successRedirect: '/'
+       
       })(req, res, next);
-    },
-    function(req, res) {
-      res.redirect(req.query.redirect);
-    });
+  });
 }
 
 module.exports = setupAuth;
